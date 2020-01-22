@@ -64,7 +64,8 @@
             NSArray *array = dictionary[key];
             convertedDictionary[key] = [self recursivelyConvertObjectsToDictionariesInArray:array];
         } else if ([dictionary[key] respondsToSelector:@selector(enumValue)]) {
-            NSNumber *number = @([dictionary[key] enumValue]);
+            NSInteger enumValue = [dictionary[key] performSelector:@selector(enumValue)];
+            NSNumber *number = @(enumValue);
             convertedDictionary[key] = number;
         } else {
             convertedDictionary[key] = dictionary[key];
@@ -83,7 +84,8 @@
             NSArray *array = item;
             [convertedArray addObject:[self recursivelyConvertObjectsToDictionariesInArray:array]];
         } else if ([item respondsToSelector:@selector(enumValue)]) {
-            NSNumber *number = @([item enumValue]);
+            NSInteger enumValue = [item performSelector:@selector(enumValue)];
+            NSNumber *number = @(enumValue);
             [convertedArray addObject:number];
         } else {
             [convertedArray addObject:item];
