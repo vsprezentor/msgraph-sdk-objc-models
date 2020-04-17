@@ -47,5 +47,6 @@
     @property (nullable, nonatomic, setter=setCalendar:, getter=calendar) MSGraphCalendar* calendar;
     @property (nullable, nonatomic, setter=setInstances:, getter=instances) NSArray* instances;
     @property (nullable, nonatomic, setter=setExtensions:, getter=extensions) NSArray* extensions;
-  
+    @property (nonatomic, setter=setIsOnlineMeeting:, getter=isOnlineMeeting) BOOL isOnlineMeeting;
+    @property (nullable, nonatomic, setter=setOnlineMeetingProvider:, getter=onlineMeetingProvider) NSString* onlineMeetingProvider;
 @end
