@@ -49,6 +49,8 @@
     MSGraphCalendar* _calendar;
     NSArray* _instances;
     NSArray* _extensions;
+    BOOL _isOnlineMeeting;
+    NSString *_onlineMeetingProvider;
 }
 @end
 
@@ -614,5 +616,30 @@
     self.dictionary[@"extensions"] = val;
 }
 
+- (BOOL) isOnlineMeeting
+{
+    _isOnlineMeeting = [self.dictionary[@"isOnlineMeeting"] boolValue];
+    return _isOnlineMeeting;
+}
+
+- (void) setIsOnlineMeeting: (BOOL) val
+{
+    _isOnlineMeeting = val;
+    self.dictionary[@"isOnlineMeeting"] = @(val);
+}
+
+- (NSString*) onlineMeetingProvider
+{
+    if([[NSNull null] isEqual:self.dictionary[@"onlineMeetingProvider"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"onlineMeetingProvider"];
+}
+
+- (void) setOnlineMeetingProvider: (NSString*) val
+{
+    self.dictionary[@"onlineMeetingProvider"] = val;
+}
 
 @end
