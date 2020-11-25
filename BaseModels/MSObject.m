@@ -45,7 +45,7 @@
 
 -(NSMutableDictionary *)getDictionary
 {
-    return [self.dictionary mutableCopy];
+	return [[self recursivelyConvertObjectsToDictionariesInDictionary:self.dictionary] mutableCopy];
 }
 
 - (NSData *)getSerializedDataWithError:(NSError *__autoreleasing *)error
